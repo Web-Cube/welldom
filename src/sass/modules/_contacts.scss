@@ -1,0 +1,249 @@
+.contacts{
+	padding-top: 107rem;
+	color: #242424;
+	position: relative;
+
+	@include max-screen($large_tablet) {
+		padding-top: 50rem;
+	}
+
+	@include max-screen($small_tablet) {
+		padding-top: 0rem;
+	}
+
+	&:before{
+		content: '';
+		display: block;
+		left: 0;
+		bottom: 0;
+		background: url('/img/map.jpg') left bottom no-repeat;
+		// width: 1161rem;
+		width: 60.47%;
+		padding-top: 40.52%;
+		// height: 778rem;
+		position: absolute;
+		transition: ease .2s;
+		z-index: 1;
+	}
+
+	// &.is-hover-map{
+	// 	&:before{
+	// 		opacity: 0;
+	// 	}
+	// }
+
+	&__title{
+		margin-bottom: 45rem;
+	}
+
+	&__map{
+		&-list, &-circle{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		&-circle{
+			border-radius: 50%;
+			border: 1rem solid #dcdde2;
+			animation: smallCircleScale 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+			&:nth-child(2){
+				animation-delay: 1s;
+			}			
+		}
+
+		&-inner{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;			
+			// transform: translateZ(-1rem);
+		}
+
+		&-hover{
+			transition: ease .2s;
+			opacity: 0;
+			border-radius: 50%;
+		}
+
+		&-button{
+			position: relative;
+			margin-top: 155rem;
+			width: 100%;
+			cursor: pointer;
+			padding-top: 100%;
+			transition: ease .2s;
+			border-radius: 50%;
+
+			&:hover{
+				// background-color: $blue;
+				transform: scale(1.08);
+
+				.contacts{
+					&__map{
+
+						&-hover{
+							opacity: 1;
+						}
+
+						&-icon{
+							svg{
+								fill: #fff;
+							}
+						}
+
+						&-text{
+							color: #fff;
+						}						
+					}
+				}
+			}
+		}
+
+		&-icon{
+			height: 53rem;
+			margin-bottom: 14rem;
+			svg{
+				height: 100%;
+				fill: #1f1f1f;
+			}
+		}
+
+		&-text{
+			color: #1f1f1f;
+		}
+		@include max-screen($large_tablet) {
+			&-button{
+				margin-top: 75rem;
+			}
+		}
+
+		@include max-screen($small_tablet) {
+			&-button{
+				// width: 80%;
+				// padding-top: 80%;
+			}
+		}	
+
+		@include max-screen($small_mobile) {
+			&-button{
+				margin: 50rem auto;
+				width: 160rem;
+				padding-top: 160rem;
+			}
+		}			
+	}
+
+	&__help{
+		top: 46rem;
+		left: auto;
+		// right: 323rem;
+		right: 68.43%;
+		width: 138rem;
+	}
+
+	&__accordion{
+		
+		&-list{
+			margin-bottom: 70rem;
+			margin-top: -5rem;
+		}
+
+		&:not(:last-child){
+			margin-bottom: 10rem;
+		}
+
+		@include max-screen($large_mobile) {
+			&-list{
+				margin-bottom: 25rem;
+			}
+		}
+	}
+
+	&__button{
+		width: 357rem;
+		max-width: 100%;
+
+		@include max-screen($small_mobile) {
+			bottom: 0;
+		}
+
+	}
+
+	&__man{
+		position: absolute;
+		left: 32rem;
+		bottom: 0;
+	}
+
+	&__cell{
+		min-height: 840rem;
+		position: relative;
+
+		&_left{
+			width: 20.58%;
+			padding-right: 30rem;
+		}
+
+		&_center{
+			width: 41.17%;
+		}
+
+		&_right{
+			width: 38.25%;
+			// padding-bottom: 154rem;
+		}
+
+		@include max-screen($large_tablet) {
+			min-height: 0;
+			&_right{
+			    width: 34.25%;
+			    padding-bottom: 100rem;
+			}
+
+			&_center{
+			    width: 34.25%;
+			}
+
+			&_left{
+			    width: 25.58%;
+			}
+		}
+
+		@include max-screen($small_tablet) {
+			&_center{
+				display: none;
+			}
+
+			&_left{
+				width: 40%;
+			}
+
+			&_right{
+				width: 60%;
+			}
+		}
+
+		@include max-screen($small_mobile) {
+			width: 100%;
+
+			&_right{
+				order: 1;
+			}
+
+			&_left{
+				order: 2;
+				padding-bottom: 10rem;
+			}
+		}		
+	}
+
+}

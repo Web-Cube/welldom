@@ -1,0 +1,42 @@
+.fullscreen{
+	height: 100vh;
+	display: flex;
+	min-height: 650rem;
+	flex-direction: column;
+	overflow: hidden;
+	font-size: 16rem;
+
+	@include max-screen($large_mobile) {
+		min-height: 0;
+	}
+
+
+	&__container{
+		position: relative;
+		
+		&_fix{
+		    flex: 0 0 auto;
+		    
+		}
+
+		&_auto{
+		    flex: 1 0 auto;
+		}
+
+		@include max-screen($small_tablet) {
+			
+
+			&_header{
+				padding-top: 112rem;
+			}
+		}
+
+		@include max-screen($large_mobile) {
+			
+
+			&_header{
+				padding-top: 58rem;
+			}
+		}		
+	}
+}

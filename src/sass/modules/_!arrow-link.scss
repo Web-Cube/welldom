@@ -1,0 +1,19 @@
+.arrow-link{
+	color: $blue;
+	font-weight: 500;
+	display: inline-flex;
+	align-items: center;
+	&__icon {
+		width: 18rem;
+		fill: $blue;
+		margin-left: 11rem;
+		position: relative;
+		top: 2rem;
+		transition: ease .2s;
+	}
+	&:hover {
+		.arrow-link__icon {
+			transform: translateX(5rem);
+		}
+	}
+}
