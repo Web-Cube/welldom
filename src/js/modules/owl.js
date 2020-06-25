@@ -82,8 +82,11 @@ var owl = {
 					return false;
 
 				let pos = $('.header__wrap').offset().left + parseFloat($('.header__wrap').css('padding-left'));
-
-				$(item).find('.owl-stage-outer').css('padding-left', pos + 'px')
+				
+				if ( $('.autowidth-slider').hasClass('js-building-gallery') ) {
+				} else {
+					$(item).find('.owl-stage-outer').css('padding-left', pos + 'px')
+				}
 			}
 
 			$('.autowidth-slider').each(function() {
@@ -91,7 +94,6 @@ var owl = {
 				let slider = $(this);
 
 				let defaults = {
-					items: 3,
 					autoWidth: true,
 					autoplay: false, 
 					// autoplayTimeout: 8000,
@@ -112,6 +114,25 @@ var owl = {
 						}
 					}						
 				}
+				
+				if ( $(this).hasClass('js-building-gallery') ) {
+					defaults.autoWidth = false;
+					defaults.stagePadding = 0;
+					defaults.responsive = {
+						0:{
+							margin: 10,
+							items: 1
+						},
+						580:{
+							margin: 20,
+							items: 2
+						},
+						769:{
+							margin: 30,
+							items: 4
+						}
+					}
+				}				
 
 				if($(this).hasClass('js-inside-nav')){
 					defaults.nav = false;
@@ -341,6 +362,35 @@ var owl = {
 		
 	},
 	
+	finishingGallery: () => {
+		
+		$(".finishing__gallery").each(function(){
+			$(this).owlCarousel({
+				items: 1,
+				dots: false,
+				nav: true,
+				navigationText : ["",""],
+				loop: true,
+				margin: 30,
+				responsive:{
+					0:{
+						items: 1,
+						margin: 0
+					},
+					580:{
+						items: 2,
+						margin: 20
+					},
+					769:{
+						items: 3,
+						margin: 30
+					}
+				}
+			});
+		});
+		
+	},
+	
 	arrows: () => {
 		$(document).on("click", '.owl-arrow:not(.js-gallerybutton)', function() {
 
@@ -374,6 +424,7 @@ var owl = {
 		owl.arrows();
 		owl.autowidthSlider();
 		owl.preview();
+		owl.finishingGallery();
 
 	}
 }

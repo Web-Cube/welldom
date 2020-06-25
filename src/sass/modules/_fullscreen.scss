@@ -1,7 +1,6 @@
 .fullscreen{
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
-	min-height: 650rem;
 	flex-direction: column;
 	overflow: hidden;
 	font-size: 16rem;

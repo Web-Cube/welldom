@@ -7,6 +7,13 @@
 		padding-top: 120rem;
 		padding-bottom: 50rem;
 	}
+	
+	&__head-title {
+		margin-bottom: 95rem;
+		@include max-screen($large_mobile) {
+			margin-bottom: 40rem;
+		}
+	}
 
 	&:before{
 		z-index: 1;

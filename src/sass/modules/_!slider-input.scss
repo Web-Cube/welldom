@@ -63,3 +63,11 @@
 		transform: translateY(-50%);
 	}
 }
+
+@include max-screen($large_tablet) {
+	.slider-input {
+		&__input {
+			height: 50px;
+		}
+	}
+}

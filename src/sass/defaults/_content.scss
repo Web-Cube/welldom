@@ -32,7 +32,7 @@
 
 .h1, .content h1{
 	font-size: 60rem;
-	line-height: 1em;
+	line-height: 80/60*1;
 }
 
 .h2, .content h2{
@@ -114,7 +114,7 @@
 	}
 	&_big{
 		font-size: 54rem;
-		line-height: 80rem;
+		line-height: 63/54*1;
 		font-weight: 500;
 	}
 	&_verybig{

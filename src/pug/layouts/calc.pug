@@ -1,30 +1,31 @@
-+b.SECTION.calc-section
++b.SECTION.calc-section#calc
 	+e.wrap.wrap
 		+e.box.calc__
 			+e.title.h1._small Рассчитайте ипотеку прямо сейчас
-			+e.top.flex
-				+e.top-column.flex
-					+e.top-wrap
-						+e.top-text.p Ставка, от
-						+e.top-number.js-calc-percent(dta-percent="6") 6,0 %
-				+e.top-column.flex._center
-					+e.top-wrap
-						+e.top-text.p Ежемесячный платеж
-						+e.top-number.js-calc-total 32 ₽
-				+e.top-column.flex._center
-					+e.top-wrap
-						+e.top-text.p Первый взнос, от
-						+e.top-number 10 %
-				+e.top-column.flex._end
-					+e.bank-list.flex._vertical
-						+e.bank
-							img(src="/img/bank1.png")
-						+e.bank
-							img(src="/img/bank2.png")
-						+e.bank
-							img(src="/img/bank3.png")
-						+e.bank
-							img(src="/img/bank4.png")
+			+e.js.js-clone-top
+				+e.top.flex
+					+e.top-column.flex
+						+e.top-wrap
+							+e.top-text.p Ставка, от
+							+e.top-number.js-calc-percent(dta-percent="6") 6,0 %
+					+e.top-column.flex._center
+						+e.top-wrap
+							+e.top-text.p Ежемесячный платеж
+							+e.top-number.js-calc-total 32 ₽
+					+e.top-column.flex._center
+						+e.top-wrap
+							+e.top-text.p Первый взнос, от
+							+e.top-number 10 %
+					+e.top-column.flex._end
+						+e.bank-list.flex._vertical
+							+e.bank
+								img(src="/img/bank1.png")
+							+e.bank
+								img(src="/img/bank2.png")
+							+e.bank
+								img(src="/img/bank3.png")
+							+e.bank
+								img(src="/img/bank4.png")
 			+e.row.flex._justify
 				+e.content
 					+e.content-title.h3
@@ -75,5 +76,6 @@
 							+e.input-wrap.slider-input__
 								+e.INPUT.input.js-calc-input.js-calc-year(data-value="20",data-step="1",data-min="1",data-max="30",value="20 лет",data-sign="лет",name="year")
 								+e.bottom
+					.js-html-top
 					+e.BUTTON.button.flat-button__.js-modal(data-modal="#mortgage")
 						+e.text Рассчитать ипотеку

@@ -7,22 +7,14 @@
 
 .wrap {
 	padding: 0 32px;
-	max-width: 1400px;
+	max-width: 1400rem;
 	z-index: 15;
 	margin: auto;
 	position: relative;
 
-	@include max-screen($large_desktop) {
-		max-width: 1200px;
-	}
-
 	@include max-screen($large_tablet) {
 		padding: 0 15px;
 	}
-
-	// @include max-screen($large_mobile) {
-	// 	padding: 0 10px;
-	// }
 }
 
 html {

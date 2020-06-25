@@ -4,7 +4,7 @@
 	.owl-stage-outer{
 		&:hover{
 			.gallery{
-				&__item{
+				&__item, &__slide{
 					&:after{
 						opacity: .5;
 					}
@@ -16,7 +16,7 @@
 
 	&_simple{
 		
-		padding-top: 9.64vw;	
+		padding-top: 9.64vw;
 
 		.gallery{
 			&__item{
@@ -195,7 +195,7 @@
 		}
 	}
 
-	&__item{
+	&__item, &__slide {
 		border-radius: 5rem;
 		display: block;
 		text-decoration: none;

@@ -41,7 +41,9 @@ var modals = {
 			$(modal + ' input[name="form"]').val($(e.currentTarget).data('input'))
 		}	
 
-		config.log('modal open')
+		config.log('modal open');
+		
+		var map_load = false;
 
 		$.magnificPopup.open({
 			tClose: 'Закрыть',
@@ -80,18 +82,16 @@ var modals = {
 			}
 		}, 0);
 		
-		var map_load = false;
-		
 		function map_create() {
 			map_load = true
 			$.getScript( 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', function( data, textStatus, jqxhr ) {
 				ymaps.ready(function () {
 					$('.map-box').each(function() {
 						let len = Number($(this).data('len')), lng = Number($(this).data('lng')), thisID = $(this).attr('id');
-						var myMap = new ymaps.Map("#map", {
+						var myMap = new ymaps.Map(thisID, {
 							// 
 							center: [len, lng],
-							zoom: 11,
+							zoom: 15,
 							controls: []
 						}, {
 							searchControlProvider: 'yandex#search'
@@ -101,8 +101,8 @@ var modals = {
 						}, {
 							iconLayout: 'default#image',
 							iconImageHref: '/app/img/mark.png',
-							iconImageSize: [34, 34],
-							iconImageOffset: [-17, -17]
+							iconImageSize: [80, 90],
+							iconImageOffset: [-40, -90]
 						});
 
 						myMap.geoObjects.add(myPlacemark);
@@ -164,7 +164,6 @@ var modals = {
 					verticalFit: true
 				},
 				gallery: {
-					// arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
 				    arrowMarkup: '<div class="modals__arrow owl-arrow owl-arrow_%dir% js-gallerybutton js-gallerybutton-%dir%"> <svg class="owl-arrow__border" viewBox="30 30 60 60"> <circle class="owl-arrow__path" cx="60" cy="60" r="29" fill="none"></circle> </svg> <div class="owl-arrow__item"></div></div>',			
 					enabled: true,
 					navigateByImgClick: true

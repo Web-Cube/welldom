@@ -7,8 +7,10 @@
 	padding-bottom: 70rem;
 	color: #fff;
 
-	@include max-screen($large_tablet) {
-		// padding-bottom: 0;
+	@include max-screen($large_mobile) {
+		position: relative;
+		min-height: calc( 100vh - 51px );
+		padding-top: 70rem;
 	}
 
 	&__wrap{

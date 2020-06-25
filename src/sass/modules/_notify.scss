@@ -5,17 +5,42 @@
 	justify-content: center;
 
 	padding: 77rem 0 56rem 0;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 	color: #fff;
+	position: relative;
+	overflow: hidden;
 	
-	&_first {
-		background-image: url('/img/notify_2.jpg');
-	}
-	
-	&_second {
-		background-image: url('/img/nofity3.jpg');
+	&__bg {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: #07152a;
+			opacity: .65;
+		}
+		img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			transition-timing-function: cubic-bezier(0,0,0,1);
+			transition-duration: 1s;
+		}
+		@include max-screen($small_tablet) {
+			width: 900px;
+			left: 50%;
+			margin-left: -400px;
+		}
 	}
 
 	&__wrap{
@@ -35,6 +60,10 @@
 			width: 60rem;
 			fill: #fff;
 		}
+	}
+	
+	&__support-icon {
+		width: 67rem;
 	}
 	
 	&__title {

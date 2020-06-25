@@ -5,9 +5,8 @@ var defaults = {
 	events: () => {
 		var image = document.getElementsByClassName('offer__bg-image');
 		new simpleParallax(image, {
-			delay: 1.6,
-			scale: 1.1,
-			// overflow: true,
+			delay: 1.4,
+			scale: 1.2,
 			transition: 'cubic-bezier(0,0,0,1)'
 		});
 		
@@ -17,7 +16,7 @@ var defaults = {
 			$('.modals .horizontal-messengers__input').filter('[value='+type+']').closest('.horizontal-messengers__link').click();
 		});
 		
-		$('.horizontal-messengers__demo').on('click', function() {
+		$('.horizontal-messengers__demo').on('mouseenter click', function() {
 		
 			if($(window).width() <= 580){
 				$('.mobile:not(#mobile-messengers)').removeClass('mobile_visible')
@@ -32,6 +31,10 @@ var defaults = {
 			}else{
 				$(this).parent().addClass('is-active')
 			}
+		});
+		
+		$('.horizontal-messengers').mouseleave(function(){
+			$(this).removeClass('is-active').blur()
 		});
 		
 		$('.js-messengers-close').on('click', function(e) {
@@ -51,6 +54,8 @@ var defaults = {
 		$(window).scroll(function(){
 			var scrollTop = $(window).scrollTop();
 			var navTop = $('.nav').offset().top;
+			var viewport_height = $(window).innerHeight();
+    		var viewport_width = $(window).innerWidth();
 			
 			if ( $(window).width() > 800 ) {
 				
@@ -61,6 +66,23 @@ var defaults = {
 				}
 			
 			}
+    
+			$(".js-paralax").each(function(){
+				var paralax_pos = $(this).offset().top;
+				var paralax_side = $(this).data("paralax-side");
+				var paralax_step = $(this).data("paralax-step");
+				if ( paralax_side == 'bottom') {
+					$(this).attr("style","transform: translateY(" + (-scrollTop - paralax_pos )/paralax_step + "px)" );
+				} 
+				if ( paralax_side == 'left') {
+					$(this).attr("style","transform: translateX(" + (scrollTop - paralax_pos + viewport_height )/paralax_step + "px)" );
+					if ( viewport_width < viewport_height ) {
+						$(this).attr("style","transform: translateX(" + (scrollTop - paralax_pos + ( viewport_height/2 ) )/paralax_step + "px)" );
+					}
+				} else {
+					$(this).attr("style","transform: translateY(" + (scrollTop - paralax_pos )/paralax_step + "px)" );
+				}
+			});
 			
 		});
 		
@@ -93,6 +115,17 @@ var defaults = {
 		$('.catalog__link').click(function(){
 			let roomName = $(this).data('room-name');
 			$("#price input[name='subj']").val('Узнать цену на квартиру: ' + roomName);
+		});
+		
+		// Video play
+		
+		$(".js-play").click(function(){
+			let video = $(this).data("video");
+			$(this).closest(".video").append(video);
+		});
+		
+		$(window).on('load', function(){
+			//$(".catalog__button").click();
 		});
 		
 	},

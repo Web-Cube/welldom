@@ -28,10 +28,13 @@
 
 	&__preview{
 		position: relative;
-		// border-radius: 8px;
 		border-radius: 10px;
-		border: 2px solid rgba(0, 0, 0, 0.102);
-		
+		&:hover {
+			.owl-prev, .owl-next {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
 	}
 	
 	&__image {
@@ -39,10 +42,11 @@
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
+		border-radius: 8px;
 	}
 
 	&__pagination{
-		margin-right: 131rem;
+		margin-right: 140rem;
 	}
 
 	&__name{
@@ -75,6 +79,8 @@
 		height: 80rem;
 		position: absolute;
 		overflow: hidden;
+		transition: ease .2s;
+		opacity: 0;
 		&:before {
 			content: '';
 			display: block;
@@ -85,7 +91,6 @@
 			background-color: #fff !important;
 			border-radius: 100%;
 			cursor: pointer;
-			border: 2px solid rgba(0, 0, 0, 0.102);
 			box-sizing: border-box;
 		}
 		&:after {
@@ -94,7 +99,7 @@
 			background: url(/img/catalog__arrow.png) 0 0 no-repeat;
 			width: 10rem;
 			height: 18rem;
-			background-position: 100% 100%;
+			background-size: 100% 100%;
 			position: absolute;
 			top: 50%;
 			margin-top: -9rem;
@@ -102,7 +107,8 @@
 		}
 	}
 	.owl-prev {
-		left: -2px;
+		left: -1px;
+		transform: translateX(-50%);
 		&:before {
 			right: 0;
 		}
@@ -111,7 +117,8 @@
 		}
 	}
 	.owl-next {
-		right: -3px;
+		right: -1px;
+		transform: translateX(50%);
 		&:before {
 			left: 0;
 		}
@@ -119,12 +126,20 @@
 			transform: rotate(180deg);
 		}
 	}
+	&__button{
+		width: 100%;
+		max-width: 290rem;
+	}
 }
 
 @include max-screen($large_tablet) {
 	.catalog {
 		&__image {
 			min-height: 280rem;
+		}
+		.owl-prev, .owl-next {
+			opacity: 1;
+			transform: translateX(0);
 		}
 	}
 }

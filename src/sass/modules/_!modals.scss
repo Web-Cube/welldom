@@ -24,13 +24,6 @@
 
 	.modals__close{
 		z-index: 9999;
-
-		@include max-screen($large_mobile) {
-			right: auto;
-			left: 50%;
-			top: -20rem;
-			margin-left: -20rem;
-		}
 	}
 
 	figure{
@@ -70,12 +63,29 @@
 	// }
 }
 
+.mfp-figure {
+	.modals__close {
+		right: -15rem;
+		top: -20rem;
+		background: none;
+		fill: #fff;
+		border: 0;
+		width: 60rem;
+
+		@include max-screen($large_mobile) {
+			top: -10rem;
+		}
+	}
+}
+
 .modals{
 	position: relative;
 	margin: auto;
 	width: 95%;
 	height: 100vh;
 	background-color: #fff;
+	overflow-x: visible;
+	overflow-y: auto;
 
 
 	*[data-submodal-id]{
@@ -150,8 +160,6 @@
 
 	@include max-screen($small_tablet) {
 		padding: 40rem 0;
-		overflow: visible;
-		height: auto;
 		display: block;
 		float: none;
 	}

@@ -94,10 +94,23 @@ var calc = {
 		startPercent();
 		
 	},
+	
+	clone: () => {
+		if ( $(window).innerWidth() < 580 ) {
+			$('.calc').each(function(){
+				
+				var cloneTop = $(this).find('.js-clone-top').html();
+				$(".js-html-top").html( cloneTop );
+				$(this).find('.js-clone-top').remove();
+				
+			});
+		}	
+	},
 
 	init: () => {
 		
 		calc.events();
+		calc.clone();
 
 	}
 }

@@ -334,10 +334,27 @@
 	+e.cell
 		+e.title.h2 
 			| Скачать планировки
-		+e.text.p
-			| Куда выслать варианты?
 		+e.FORM.form.form__(action="/app/mail")
-			+e.INPUT(type="hidden" name="subj" value="Заявка на: Скачать презентацию")
+			+e.INPUT(type="hidden" name="subj" value="Заявка на: Скачать планировки")
+			+e.fields
+				+e.field._new
+					+e.field-head.flex._vertical
+						+e.LABEL.label Ваш бюджет
+					+e.select
+						+e.select-icon
+							+icon('next','0 0 477.175 477.175')
+						select(value="1 комнатная квартира",name="room")
+							option(value="1 комнатная квартира") 1 комнатная квартира
+							option(value="2 комнатная квартира") 2 комнатная квартира
+							option(value="3 комнатная квартира") 3 комнатная квартира
+				+e.field._new
+					+e.field-head.flex._vertical
+						+e.LABEL.label Ваш бюджет
+					+e.input-wrap.slider-input__
+						+e.INPUT.input.js-calc-input.js-calc-start(data-value="500000",data-step="50000",data-min="100000",data-max="5000000",value="500 000 ₽",data-sign="₽",name="start")
+						+e.bottom
+			+e.text.p.mb10
+				| Куда выслать варианты?
 			+b.horizontal-messengers__._default.modals__messengers
 				+e.item
 					+e.LABEL.link._wa(href="#" target="_blank")
@@ -382,7 +399,7 @@
 				+e.icon
 					+icon('mail', '0 0 14 14')
 			+e.BUTTON.button.flat-button__
-				+e.text Выслать презентацию
+				+e.text Получить планировки
 			+e.LABEL.accept.checkbox__
 				+e.INPUT.input(type="checkbox" name="accept" checked="")
 				+e.SPAN.text.middle

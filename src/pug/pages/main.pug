@@ -5,6 +5,12 @@ append vars
 	- body['classList'] = 'is-loaded';
 
 block content
+	+b.SECTION.fullscreen
+		+e.container._fix._header
+			include ../layouts/header
+			include ../layouts/nav
+		+e.container._auto
+			include ../layouts/offer	
 	include ../layouts/facts_first
 	include ../layouts/about-slider
 	include ../layouts/info_slider

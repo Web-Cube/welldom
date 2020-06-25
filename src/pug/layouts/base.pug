@@ -60,13 +60,7 @@ html(class=html.classList)&attributes(html.attrs)
 	body(class=body.classList)&attributes(body.attrs)#top
 		block body-start
 
-		block header 
-			+b.SECTION.fullscreen
-				+e.container._fix._header
-					include header
-					include nav
-				+e.container._auto
-					include offer					
+		block header				
 		block content
 		block footer 
 			include footer
